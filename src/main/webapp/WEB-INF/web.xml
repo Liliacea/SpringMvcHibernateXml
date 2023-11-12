@@ -1,0 +1,38 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+
+      classpath:service-context.xml
+      classpath:springConfig.xml
+
+    </param-value>
+  </context-param>
+  <!--<end id="param_contextConfigLocation" />-->
+
+  <!--<start id="listener_ContextLoaderListener" />-->
+  <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>person</servlet-name>
+    <servlet-class>
+      org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <!--<end id="servlet_DispatcherServlet"/>-->
+
+  <!--<start id="servletmapping_DispatcherServlet" />-->
+  <servlet-mapping>
+    <servlet-name>person</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>
